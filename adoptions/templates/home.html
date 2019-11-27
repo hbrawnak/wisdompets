@@ -1,10 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Home</title>
-</head>
-<body>
+<div>
+    {% for pet in pets %}
+        <div class="petname">
+            <a href="{%  url 'pet_detail' pet.id %}">
+                <h3>{{ pet.name|capfirst }}</h3>
+            </a>
+            <p>{{ pet.species }}</p>
+            {% if pet.breed %}
+                <p>Breed: {{ pet.breed }}</p>
+            {% endif %}
 
-</body>
-</html>
+            <div class="hidden">
+                {{ pet.description }}
+            </div>
+        </div>
+    {% endfor %}
+</div>
